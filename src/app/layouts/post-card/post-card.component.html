@@ -1,17 +1,17 @@
 
-<div class="card">
-    <img src="https://images.pexels.com/photos/4113930/pexels-photo-4113930.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="ayush-dhawan-post-img" class="card-img-top">
+<div *ngIf="postData" class="card">
+    <img src={{postData?.data.postImgPath}} alt="ayush-dhawan-post-img" class="card-img-top">
 
     <div class="card-body">
-        <small class="bg-light text-danger text-center">Design</small>
-        <small class="bg-light text-success text-center ml-3">Featured</small>
-        <small class="bg-light text-info text-center ml-3">Views - 100,986</small>
+        <small class="bg-light text-danger text-center">{{postData?.data.category.category}}</small>
+        <small class="bg-light text-success text-center ml-3" *ngIf="postData?.data.isFeatured">Featured</small>
+        <small class="bg-light text-info text-center ml-3">Views - {{postData?.data.views}}</small>
 
         <h5 class="mt-1">
-            How to maintain a good work life balance
+            {{postData?.data.title}}
         </h5>
-        <p class="summary">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsam doloribus magnam et, praesentium perspiciatis, amet ut error illo temporibus animi harum officia dicta dolores deleniti?</p>
+        <p class="summary">{{postData?.data.excerp}}</p>
 
-        <small class="bg-light text-warning text-center ml-3">LAST UPDATED - APR 07, 2024</small>
+        <small class="bg-light text-warning text-center ml-3">LAST UPDATED - {{postData?.data.created_at.toMillis() | date}}</small>
     </div>
 </div>
