@@ -1,5 +1,5 @@
 
-<div *ngIf="postData" class="card">
+<div *ngIf="postData" class="card" [routerLink]="['/post', postData.id]">
     <img src={{postData?.data.postImgPath}} alt="ayush-dhawan-post-img" class="card-img-top">
 
     <div class="card-body">

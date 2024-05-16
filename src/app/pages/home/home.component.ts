@@ -12,8 +12,15 @@ import { CommonModule } from '@angular/common';
 })
 export class HomeComponent {
   featuredPosts !: Array<Object>;
+  latestPosts !: Array<Object>;
+
   constructor(private postService : PostService){
-    this.postService.loadData().subscribe(val => this.featuredPosts = val)
+    this.postService.loadData().subscribe(val => this.featuredPosts = val);
+    this.postService.loadLatest().subscribe(val => this.latestPosts = val);
   }
+
+  // ngOnInit(): void{
+       
+  // }
 
 }

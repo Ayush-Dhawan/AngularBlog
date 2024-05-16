@@ -8,8 +8,8 @@ import { AboutComponent } from './pages/about/about.component';
 
 export const routes: Routes = [
     {path: '', component: HomeComponent},
-    {path: 'category', component: SingleCategoryComponent},
-    {path: 'post', component: SinglePostComponent},
+    {path: 'category/:categoryName/:id', component: SingleCategoryComponent},
+    {path: 'post/:postId', component: SinglePostComponent},
     {path: 'about', component: AboutComponent},
     {path: 'contact', component: ContactComponent},
     {path: 'termsandconditions', component: TermsConditionsComponent}
