@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { map } from 'rxjs';
 import firebase from 'firebase/compat/app';
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PostService {
 
-  constructor(private afs : AngularFirestore) { }
+  constructor(private afs : AngularFirestore,  private toast: ToastrService) { }
 
   loadData(){
     return this.afs.collection('posts', ref => ref.where('isFeatured', '==', true)).snapshotChanges().pipe(
@@ -68,4 +69,21 @@ export class PostService {
     }
     this.afs.doc(`posts/${postId}`).update(viewsCount).then(() => console.log("view count updated!"))
   }
+
+  addComment(commentData: any){
+    this.afs.collection("comments").add(commentData).then(() => this.toast.success('Comment added!'))
+  }
+
+  loadPostComments(postId: string){
+    return this.afs.collection('comments', ref => ref.where('postId', '==', postId)).snapshotChanges().pipe(
+      map(actions => {
+        return actions.map(a => {
+          const data = a.payload.doc.data();
+          return {data}
+        })
+      })
+    )
+  }
 }
+
+

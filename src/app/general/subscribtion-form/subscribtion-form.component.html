@@ -1,23 +1,26 @@
 
 
-<div class="card">
-    <div class="card-body">
-        <div class="text-center mt-3 mb-5">
-            <h3>SUBSCRIPTION FORM</h3>
-            <p class="m-auto subs-text">Lorem ipsum dolor sit, magnam sunt autem at ratione veniam temporibus exercitationem sapiente voluptates velit reiciendis.</p>
-
-            <form action="" class="form-inline mb-5 mt-5">
-                <div class="form-group col-md-5">
-                    <input type="text" class="form-control" placeholder="Your name">
-                </div>
-                <div class="form-group col-md-5">
-                    <input type="email" class="form-control shadow-effect" placeholder="Your email">
-                </div>
-
-                <div class="col-md-2">
-                    <button class="btn btn-block btn-info btn-theme"> SUBSCRIBE </button>
-                </div>
-            </form>
+<div style="width: 100vw; display: flex; align-items: center; justify-content: center;">
+    <div class="card">
+        <div class="card-body">
+            <div class="text-center mt-3 mb-5 ">
+                <h3>SUBSCRIPTION FORM</h3>
+                <p class="m-auto subs-text">Lorem ipsum dolor sit, magnam sunt autem at ratione veniam temporibus exercitationem sapiente voluptates velit reiciendis.</p>
+    
+                <form class="form mb-5 mt-5" [formGroup]="subscribeForm" (ngSubmit)="onSubmit(subscribeForm.value)">
+                    <div class="form-group col-md-5">
+                        <input type="text" [ngClass]="{'is-invalid': fc['name'].touched && fc['name'].invalid}" class="form-control" placeholder="Your name" formControlName="name">
+                    </div>
+                    <div class="form-group col-md-5">
+                        <input type="email" [ngClass]="{'is-invalid': fc['email'].touched && fc['email'].invalid}" class="form-control shadow-effect" placeholder="Your email" formControlName="email">
+                    </div>
+                
+                    <div class="form-group col-md-2">
+                        <button [disabled]="subscribeForm.invalid" [ngClass]="{'cursor-not-allowed': subscribeForm.invalid}" class="btn btn-block btn-info btn-theme"> SUBSCRIBE </button>
+                    </div>
+                </form>
+                
+            </div>
         </div>
     </div>
 </div>

@@ -19,3 +19,23 @@ input[type = text], input[type = email]{
 .subs-text{
     width: 500px;
 }
+
+form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card{
+    width: 100%;
+}
+
+.invalid{
+    
+}
+
+@media (max-width: 900px) {
+    form{
+        flex-direction: column;
+    }
+}

@@ -1,42 +1,17 @@
 
 <div class="card mb-5 mt-5 pb-5 shadow-effect">
     <div class="card-body">
-        <h4 class="mt-3 mb-3">Comments (564)</h4>
+        <h4 class="mt-3 mb-3">Comments ({{commentList?.length | json}})</h4>
 
-        <div class="comment-box mt-3">
-            <h6 class="mb-0">Snake Sapre</h6>
-            <small class="text-warning">LAST UPDATED - APR 08, 2024</small>
-
-            <div class="mt-3 mb-3">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Doloribus, nemo? Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam!
+        <div *ngIf="commentList">
+            <div *ngFor="let comment of commentList" class="comment-box mt-3">
+                <h6 class="mb-0">{{comment.data.name}}</h6>
+                <small class="text-success">{{comment.data?.created_at.toMillis() | date}}</small>
+    
+                <div class="mt-3 mb-3">
+                    {{comment.data?.comment}}
+                </div>
             </div>
-            <a href="#" class="mt-1">Reply</a>
-            <a href="#" class="mt-1 ml-3">View Reply</a>
-            <hr>
-        </div>
-
-        <div class="comment-box mt-3">
-            <h6 class="mb-0">Snake Sapre</h6>
-            <small class="text-warning">LAST UPDATED - APR 08, 2024</small>
-
-            <div class="mt-3 mb-3">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Doloribus, nemo? Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam!
-            </div>
-            <a href="#" class="mt-1">Reply</a>
-            <a href="#" class="mt-1 ml-3">View Reply</a>
-            <hr>
-        </div>
-
-        <div class="comment-box mt-3">
-            <h6 class="mb-0">Snake Sapre</h6>
-            <small class="text-warning">LAST UPDATED - APR 08, 2024</small>
-
-            <div class="mt-3 mb-3">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Doloribus, nemo? Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam!
-            </div>
-            <a href="#" class="mt-1">Reply</a>
-            <a href="#" class="mt-1 ml-3">View Reply</a>
-            <hr>
         </div>
     </div>
 </div>

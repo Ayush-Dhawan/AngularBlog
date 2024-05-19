@@ -23,7 +23,7 @@
     </div>
 
     <div class="row">
-        <div class="col-md-4 mt-3" *ngFor="let post of latestPosts">
+        <div class="post-container col-md-4 mt-3" *ngFor="let post of latestPosts">
             <app-post-card [postData]="post"></app-post-card>
         </div>
         

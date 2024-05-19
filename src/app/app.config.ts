@@ -9,9 +9,11 @@ import { routes } from './app.routes';
 import { provideClientHydration } from '@angular/platform-browser';
 import { environment } from '../environments/environment';
 import { NgModel, ReactiveFormsModule } from '@angular/forms';
+import { provideAnimations } from '@angular/platform-browser/animations';
+import { provideToastr } from 'ngx-toastr';
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideRouter(routes), provideClientHydration(), importProvidersFrom([
+  providers: [provideRouter(routes), provideClientHydration(),provideToastr(),provideAnimations(), importProvidersFrom([
     AngularFireModule.initializeApp(environment.firebaseConfig), 
     AngularFirestoreModule,
     AngularFireAuthModule,
