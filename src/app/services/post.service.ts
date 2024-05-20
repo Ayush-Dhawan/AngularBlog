@@ -67,7 +67,7 @@ export class PostService {
     const viewsCount = {
       views: firebase.firestore.FieldValue.increment(1)
     }
-    this.afs.doc(`posts/${postId}`).update(viewsCount).then(() => console.log("view count updated!"))
+    this.afs.doc(`posts/${postId}`).update(viewsCount)
   }
 
   addComment(commentData: any){

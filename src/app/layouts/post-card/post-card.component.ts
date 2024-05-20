@@ -14,6 +14,6 @@ export class PostCardComponent {
   @Input() postData!: any;
   
   ngOnInit(): void{
-    console.log("post data: ",this.postData)
+    // console.log("post data: ",this.postData)
   }
 }
