@@ -4,7 +4,9 @@ footer{
     background-color: var(--navbar-footer-color);
     /* margin-top: 65vh; */
 }
-
+.min-width{
+    min-width: 500px;
+}
 .logo{
     font-size: 1.2em;
 }

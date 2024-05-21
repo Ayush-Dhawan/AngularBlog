@@ -1,6 +1,6 @@
 
 
-<div class="container ">
+<div class="container min-width ">
     <div class="row">
         <div class="col-md-8">
             <div class="shadow-effect card">
@@ -18,8 +18,7 @@
             <app-comment-form></app-comment-form>
             <app-comment-list></app-comment-list>
         </div>
-        <div class="col-md-4" >
-            
+        <div class="col-md-4 similar-posts-container" >      
             <div *ngFor="let post of similarPosts">
                 <app-post-card [postData]="post"></app-post-card>
             </div>
